@@ -1,0 +1,803 @@
+/* =======================================
+   MOVIE NIGHT v3
+   style.css
+======================================= */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+
+
+body{
+
+    min-height:100vh;
+
+    font-family:"Poppins", sans-serif;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #fff0f5,
+        #ffd6e7
+    );
+
+    color:#4b2635;
+
+    overflow:hidden;
+
+}
+
+
+
+#background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(255,255,255,.8),
+        transparent 60%
+    );
+
+}
+
+
+
+
+
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+
+.page{
+
+    display:none;
+
+    height:100vh;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+
+
+.page.active{
+
+    display:flex;
+
+    animation:appear .6s ease;
+
+}
+
+
+
+@keyframes appear{
+
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(20px);
+
+    }
+
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+
+
+
+
+/* =========================
+   CARDS
+========================= */
+
+
+.card{
+
+
+    width:min(90%,520px);
+
+
+    padding:45px;
+
+
+    background:
+
+    rgba(255,255,255,.75);
+
+
+    backdrop-filter:blur(15px);
+
+
+    border-radius:35px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 25px 60px rgba(150,70,100,.18);
+
+
+}
+
+
+
+
+
+h1,
+h2{
+
+
+    font-family:
+
+    "Cormorant Garamond",
+    serif;
+
+
+    color:#7d3151;
+
+
+}
+
+
+
+h1{
+
+    font-size:3rem;
+
+    margin-bottom:15px;
+
+}
+
+
+
+h2{
+
+    font-size:2rem;
+
+}
+
+
+
+p{
+
+    line-height:1.7;
+
+    color:#765767;
+
+}
+
+
+
+.emoji{
+
+    font-size:4rem;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.eyebrow{
+
+    letter-spacing:5px;
+
+    color:#c35b86;
+
+    font-size:.8rem;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.question{
+
+    margin:30px 0;
+
+}
+
+
+
+
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+
+button{
+
+
+    border:none;
+
+    cursor:pointer;
+
+    padding:14px 25px;
+
+    border-radius:50px;
+
+    font-family:"Poppins";
+
+    font-size:.95rem;
+
+    transition:.3s ease;
+
+
+}
+
+
+
+button:hover{
+
+
+    transform:translateY(-4px);
+
+}
+
+
+
+#yesBtn,
+#ticketBtn,
+.nextBtn,
+#endingBtn{
+
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #d85b8b,
+        #9e315d
+    );
+
+
+    color:white;
+
+
+    box-shadow:
+
+    0 10px 25px rgba(158,49,93,.25);
+
+
+}
+
+
+
+#noBtn{
+
+
+    background:#f7e4ec;
+
+    color:#7d3151;
+
+}
+
+
+
+.buttons{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+
+
+.small{
+
+    margin-top:25px;
+
+    font-size:.85rem;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+
+.progress{
+
+
+    height:10px;
+
+    width:100%;
+
+    background:#f3d9e5;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin:25px 0;
+
+
+}
+
+
+
+#loading-bar,
+#booking-bar,
+#ticketPrintBar{
+
+
+    height:100%;
+
+    width:0%;
+
+
+    background:
+
+    linear-gradient(
+        90deg,
+        #d85b8b,
+        #ff9fc5
+    );
+
+
+    border-radius:20px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   MOVIES
+========================= */
+
+
+.movie-grid{
+
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:15px;
+
+    margin:30px 0;
+
+}
+
+
+
+.movie-card{
+
+
+    background:#fff7fa;
+
+    padding:20px;
+
+    border-radius:25px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+
+}
+
+
+
+.movie-card:hover{
+
+
+    transform:scale(1.05);
+
+
+}
+
+
+
+.movie-card.selected{
+
+
+    border:
+
+    3px solid #d85b8b;
+
+
+    background:#ffe5ef;
+
+
+}
+
+
+
+.movie-icon{
+
+
+    font-size:2.5rem;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   DATE
+========================= */
+
+
+input{
+
+
+    padding:15px;
+
+    border-radius:20px;
+
+    border:2px solid #f1bfd2;
+
+    font-family:"Poppins";
+
+    margin:20px;
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   TIME + SNACKS
+========================= */
+
+
+.time-grid,
+.snack-grid{
+
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin:25px 0;
+
+}
+
+
+
+.timeBtn,
+.snackBtn{
+
+
+    background:#fff0f5;
+
+    color:#7d3151;
+
+
+}
+
+
+
+.timeBtn.selected,
+.snackBtn.selected{
+
+
+    background:#d85b8b;
+
+    color:white;
+
+
+}
+
+
+
+
+
+
+
+/* =========================
+   TICKET
+========================= */
+
+
+.ticket{
+
+
+    width:min(90%,430px);
+
+
+    background:#fffdf8;
+
+
+    padding:35px;
+
+
+    border-radius:25px;
+
+
+    text-align:center;
+
+
+    box-shadow:
+
+    0 25px 60px rgba(0,0,0,.15);
+
+
+}
+
+
+
+.ticket h1{
+
+
+    font-size:2.5rem;
+
+}
+
+
+
+.admit{
+
+
+    letter-spacing:5px;
+
+}
+
+
+
+.ticket hr{
+
+
+    border:none;
+
+    border-top:
+
+    2px dashed #e6bfd0;
+
+    margin:20px 0;
+
+}
+
+
+
+.ticket-info p{
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin:12px 0;
+
+}
+
+
+
+.seats{
+
+
+    display:flex;
+
+    justify-content:space-around;
+
+}
+
+
+
+.message{
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   BANANA RAIN
+========================= */
+
+
+.banana{
+
+
+    position:fixed;
+
+    top:-50px;
+
+    animation:drop 4s linear;
+
+}
+
+
+
+@keyframes drop{
+
+
+    to{
+
+        transform:
+
+        translateY(110vh)
+
+        rotate(360deg);
+
+    }
+
+}
+
+
+
+
+
+
+
+/* =========================
+   POPUP
+========================= */
+
+
+#popupMessage{
+
+
+    position:fixed;
+
+    top:30px;
+
+    left:50%;
+
+
+    transform:
+
+    translateX(-50%);
+
+
+    background:#7d3151;
+
+    color:white;
+
+    padding:15px 25px;
+
+    border-radius:50px;
+
+    opacity:0;
+
+    transition:.3s;
+
+
+}
+
+
+
+#popupMessage.show{
+
+    opacity:1;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   ENDING
+========================= */
+
+
+.ending{
+
+
+    text-align:center;
+
+    padding:40px;
+
+}
+
+
+
+.ending h1{
+
+    font-size:3.5rem;
+
+}
+
+
+
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+
+@media(max-width:600px){
+
+
+    .card{
+
+        padding:30px;
+
+    }
+
+
+
+    h1{
+
+        font-size:2.3rem;
+
+    }
+
+
+
+    .movie-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+
+}
